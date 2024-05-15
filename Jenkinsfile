@@ -40,8 +40,8 @@ pipeline
 		{
 			steps
 			{
-			        sh 'cp /var/lib/jenkins/workspace/$JOB_NAME/target/ABCtechnologies-1.0.war abc_tech.war'
-                                sh 'docker build -t abc_tech:$BUILD_NUMBER .'
+			    sh 'cp /var/lib/jenkins/workspace/$JOB_NAME/target/ABCtechnologies-1.0.war abc_tech.war'
+                sh 'docker build -t abc_tech:$BUILD_NUMBER .'
 				sh 'docker tag abc_tech:$BUILD_NUMBER jsachdev07/abc_tech:$BUILD_NUMBER'
 			}
 		}
@@ -70,7 +70,7 @@ pipeline
 			steps
 			{
 				sh 'kubectl create -f deploy.yaml'
-			        sh  sh 'kubectl create -f svc.yaml'
+			        sh 'kubectl create -f svc.yaml'
 			}
 		}
 
